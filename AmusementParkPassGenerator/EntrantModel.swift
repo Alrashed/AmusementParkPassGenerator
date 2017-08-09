@@ -27,6 +27,50 @@ enum InformationError: Error {
     case invalidAge
 }
 
+struct FullName {
+    let firstName: String
+    let lastName: String
+    
+    init(firstName: String, lastName: String) throws {
+        if firstName.isEmpty {
+            throw InformationError.missingFirstName
+        }
+        if lastName.isEmpty {
+            throw InformationError.missingLastName
+        }
+        
+        self.firstName = firstName
+        self.lastName = lastName
+    }
+}
+
+struct FullAddress {
+    let streetAddress: String
+    let city: String
+    let state: String
+    let zipCode: Int
+    
+    init(streetAddress: String, city: String, state: String, zipCode: Int = 0) throws {
+        if streetAddress.isEmpty {
+            throw InformationError.missingStreetAddress
+        }
+        if city.isEmpty {
+            throw InformationError.missingCity
+        }
+        if state.isEmpty {
+            throw InformationError.missingState
+        }
+        if zipCode == 0 {
+            throw InformationError.missingZipCode
+        }
+        
+        self.streetAddress = streetAddress
+        self.city = city
+        self.state = state
+        self.zipCode = zipCode
+    }
+}
+
 // MARK: - Access Protocols
 
 // Area Access
@@ -61,8 +105,7 @@ protocol MerchandiseDiscountAccessible: DiscountAccessible {
 // MARK: Personal/Business Information Protocols
 
 protocol Nameable {
-    var firstName: String { get }
-    var lastName: String { get }
+    var fullName: FullName { get }
 }
 
 protocol Ageable {
@@ -70,10 +113,7 @@ protocol Ageable {
 }
 
 protocol Addressable {
-    var streetAddress: String { get }
-    var city: String { get }
-    var state: String { get }
-    var zipCode: Int { get }
+    var fullAddress: FullAddress { get }
 }
 
 // MARK: Entrant Protocols
@@ -121,20 +161,12 @@ class FreeChildGuest: Guest, Ageable {
 class ParkEmployee: HourlyEmployee {
     var foodDiscountPercentage: Int = 15
     let merchandiseDiscountPercentage: Int = 25
-    let firstName: String
-    let lastName: String
-    let streetAddress: String
-    let city: String
-    let state: String
-    let zipCode: Int
-    
-    init(firstName: String, lastName: String, streetAddress: String, city: String, state: String, zipCode: Int) {
-        self.firstName = firstName
-        self.lastName = lastName
-        self.streetAddress = streetAddress
-        self.city = city
-        self.state = state
-        self.zipCode = zipCode
+    let fullName: FullName
+    let fullAddress: FullAddress
+
+    init(fullName: FullName, fullAddress: FullAddress) {
+        self.fullName = fullName
+        self.fullAddress = fullAddress
     }
 }
 
@@ -145,9 +177,8 @@ class RideServicesEmployee: ParkEmployee, RideControlAccessible {}
 class MaintenanceEmployee: ParkEmployee, KitchenAccessible, RideControlAccessible, MaintenanceAccessible {}
 
 class Manager: ParkEmployee, KitchenAccessible, RideControlAccessible, MaintenanceAccessible, OfficeAccessible {
-    
-    override init(firstName: String, lastName: String, streetAddress: String, city: String, state: String, zipCode: Int) {
-        super.init(firstName: firstName, lastName: lastName, streetAddress: streetAddress, city: city, state: state, zipCode: zipCode)
+    override init(fullName: FullName, fullAddress: FullAddress) {
+        super.init(fullName: fullName, fullAddress: fullAddress)
         self.foodDiscountPercentage = 25
     }
 }
