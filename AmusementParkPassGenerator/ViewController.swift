@@ -12,14 +12,39 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func swipe(entrant: Entrant, accessType: AccessType) {
+        
+        var access = false
+        
+        switch accessType {
+        case .park:
+            access = entrant is ParkAccessible
+        case .kitchen:
+            access = entrant is KitchenAccessible
+        case .rideControl:
+            access = entrant is RideControlAccessible
+        case .maintenance:
+            access = entrant is MaintenanceAccessible
+        case .office:
+            access = entrant is OfficeAccessible
+        case .allRides:
+            access = entrant is AllRideAccessible
+        case .skipAllLines:
+            access = entrant is SkipRideLineAccessible
+        case .foodDiscount:
+            access = entrant is FoodDiscountAccessible
+        case .merchandiseDiscount:
+            access = entrant is MerchandiseDiscountAccessible
+        }
+        
+        if access {
+            print("Access granted to \(accessType)")
+        } else {
+            print("Access denied to \(accessType)")
+        }
     }
-
-
 }
 
