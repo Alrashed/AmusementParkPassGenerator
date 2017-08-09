@@ -68,6 +68,12 @@ protocol HourlyEmployee: Employee, AllRideAccessible, FoodDiscountAccessible, Me
 
 // MARK: - Entrant classes
 
+enum AccessType {
+    case park, kitchen, rideControl, maintenance, office
+    case allRides, skipAllLines
+    case foodDiscount, merchandiseDiscount
+}
+
 // Guests
 class ClassicGuest: Guest {}
 
