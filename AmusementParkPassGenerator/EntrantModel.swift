@@ -59,9 +59,11 @@ protocol Addressable {
 
 // MARK: Entrant Protocols
 
-protocol Guest: AllRideAccessible, ParkAccessible {}
+protocol Entrant {}
 
-protocol Employee: Nameable, Addressable, ParkAccessible {}
+protocol Guest: Entrant, AllRideAccessible, ParkAccessible {}
+
+protocol Employee: Entrant, Nameable, Addressable, ParkAccessible {}
 
 protocol HourlyEmployee: Employee, AllRideAccessible, FoodDiscountAccessible, MerchandiseDiscountAccessible {}
 
