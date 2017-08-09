@@ -85,6 +85,39 @@ class FreeChildGuest: Guest, Ageable {
     }
 }
 
+// Employees
+class ParkEmployee: HourlyEmployee {
+    var foodDiscountPercentage: Int = 15
+    let merchandiseDiscountPercentage: Int = 25
+    let firstName: String
+    let lastName: String
+    let streetAddress: String
+    let city: String
+    let state: String
+    let zipCode: Int
+    
+    init(firstName: String, lastName: String, streetAddress: String, city: String, state: String, zipCode: Int) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.streetAddress = streetAddress
+        self.city = city
+        self.state = state
+        self.zipCode = zipCode
+    }
+}
 
+class FoodServicesEmployee: ParkEmployee, KitchenAccessible {}
+
+class RideServicesEmployee: ParkEmployee, RideControlAccessible {}
+
+class MaintenanceEmployee: ParkEmployee, KitchenAccessible, RideControlAccessible, MaintenanceAccessible {}
+
+class Manager: ParkEmployee, KitchenAccessible, RideControlAccessible, MaintenanceAccessible, OfficeAccessible {
+    
+    override init(firstName: String, lastName: String, streetAddress: String, city: String, state: String, zipCode: Int) {
+        super.init(firstName: firstName, lastName: lastName, streetAddress: streetAddress, city: city, state: state, zipCode: zipCode)
+        self.foodDiscountPercentage = 25
+    }
+}
 
 
