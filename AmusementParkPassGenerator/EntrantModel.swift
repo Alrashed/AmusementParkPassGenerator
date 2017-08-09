@@ -66,3 +66,25 @@ protocol Employee: Nameable, Addressable, ParkAccessible {}
 protocol HourlyEmployee: Employee, AllRideAccessible, FoodDiscountAccessible, MerchandiseDiscountAccessible {}
 
 
+// MARK: - Entrant classes
+
+// Guests
+class ClassicGuest: Guest {}
+
+class VIPGuest: Guest, SkipRideLineAccessible, FoodDiscountAccessible, MerchandiseDiscountAccessible {
+    let merchandiseDiscountPercentage: Int = 10
+    let foodDiscountPercentage: Int = 20
+}
+
+class FreeChildGuest: Guest, Ageable {
+    let dateOfBirth: Date
+    
+    init(month: Int, day: Int, year: Int) {
+        let dateOfBirth = Calendar.current.date(from: DateComponents(year: year, month: month, day: day))!
+        self.dateOfBirth = dateOfBirth
+    }
+}
+
+
+
+
