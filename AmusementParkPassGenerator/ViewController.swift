@@ -9,10 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let hourlyEmployee = Manager(firstName: "Khalid", lastName: "Alrashed", streetAddress: "123", city: "SF", state: "CA", zipCode: 123)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        swipe(entrant: hourlyEmployee, accessType: .maintenance)
     }
     
     func swipe(entrant: Entrant, accessType: AccessType) {
