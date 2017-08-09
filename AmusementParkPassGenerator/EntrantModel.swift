@@ -8,6 +8,25 @@
 
 import Foundation
 
+// MARK: Error and Access enums
+
+enum AccessType {
+    case park, kitchen, rideControl, maintenance, office
+    case allRides, skipAllLines
+    case foodDiscount, merchandiseDiscount
+}
+
+enum InformationError: Error {
+    case missingFirstName
+    case missingLastName
+    case missingStreetAddress
+    case missingCity
+    case missingState
+    case missingZipCode
+    case invalidDateOfBirth
+    case invalidAge
+}
+
 // MARK: - Access Protocols
 
 // Area Access
@@ -70,12 +89,6 @@ protocol HourlyEmployee: Employee, AllRideAccessible, FoodDiscountAccessible, Me
 
 // MARK: - Entrant classes
 
-enum AccessType {
-    case park, kitchen, rideControl, maintenance, office
-    case allRides, skipAllLines
-    case foodDiscount, merchandiseDiscount
-}
-
 // Guests
 class ClassicGuest: Guest {}
 
@@ -87,8 +100,19 @@ class VIPGuest: Guest, SkipRideLineAccessible, FoodDiscountAccessible, Merchandi
 class FreeChildGuest: Guest, Ageable {
     let dateOfBirth: Date
     
-    init(month: Int, day: Int, year: Int) {
-        let dateOfBirth = Calendar.current.date(from: DateComponents(year: year, month: month, day: day))!
+    init(month: Int, day: Int, year: Int) throws {
+        guard let dateOfBirth = Calendar.current.date(from: DateComponents(year: year, month: month, day: day)) else {
+            throw InformationError.invalidDateOfBirth
+        }
+        
+        if let age = Calendar.current.dateComponents([.month], from: dateOfBirth, to: Date()).month {
+            let years = age / 12
+            
+            if years >= 5 {
+                throw InformationError.invalidAge
+            }
+        }
+        
         self.dateOfBirth = dateOfBirth
     }
 }
