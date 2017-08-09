@@ -38,3 +38,22 @@ protocol FoodDiscountAccessible: DiscountAccessible {
 protocol MerchandiseDiscountAccessible: DiscountAccessible {
     var merchandiseDiscountPercentage: Int { get }
 }
+
+// MARK: Personal/Business Information Protocols
+
+protocol Nameable {
+    var firstName: String { get }
+    var lastName: String { get }
+}
+
+protocol Ageable {
+    var dateOfBirth: Date { get }
+}
+
+protocol Addressable {
+    var streetAddress: String { get }
+    var city: String { get }
+    var state: String { get }
+    var zipCode: Int { get }
+}
+
