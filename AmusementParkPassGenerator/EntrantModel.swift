@@ -57,3 +57,12 @@ protocol Addressable {
     var zipCode: Int { get }
 }
 
+// MARK: Entrant Protocols
+
+protocol Guest: AllRideAccessible, ParkAccessible {}
+
+protocol Employee: Nameable, Addressable, ParkAccessible {}
+
+protocol HourlyEmployee: Employee, AllRideAccessible, FoodDiscountAccessible, MerchandiseDiscountAccessible {}
+
+
