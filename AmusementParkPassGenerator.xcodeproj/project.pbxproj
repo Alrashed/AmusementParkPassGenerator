@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9036A2A1F3A54E30006CB1F /* EntrantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9036A291F3A54E30006CB1F /* EntrantModel.swift */; };
 		E98D13901F38E7350022A127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98D138F1F38E7350022A127 /* AppDelegate.swift */; };
 		E98D13921F38E7350022A127 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98D13911F38E7350022A127 /* ViewController.swift */; };
 		E98D13951F38E7350022A127 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E98D13931F38E7350022A127 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E9036A291F3A54E30006CB1F /* EntrantModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntrantModel.swift; sourceTree = "<group>"; };
 		E98D138C1F38E7350022A127 /* AmusementParkPassGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmusementParkPassGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98D138F1F38E7350022A127 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E98D13911F38E7350022A127 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				E98D138F1F38E7350022A127 /* AppDelegate.swift */,
 				E98D13911F38E7350022A127 /* ViewController.swift */,
+				E9036A291F3A54E30006CB1F /* EntrantModel.swift */,
 				E98D13931F38E7350022A127 /* Main.storyboard */,
 				E98D13961F38E7350022A127 /* Assets.xcassets */,
 				E98D13981F38E7350022A127 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			files = (
 				E98D13921F38E7350022A127 /* ViewController.swift in Sources */,
 				E98D13901F38E7350022A127 /* AppDelegate.swift in Sources */,
+				E9036A2A1F3A54E30006CB1F /* EntrantModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +306,7 @@
 				E98D13A01F38E7350022A127 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
