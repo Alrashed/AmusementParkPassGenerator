@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OU6-Af-eH7">
-                                        <rect key="frame" x="0.0" y="0.0" width="192" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="153.5" height="80"/>
                                         <color key="backgroundColor" red="0.5416402817" green="0.42802590130000001" blue="0.66946250200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <state key="normal" title="Guest">
@@ -34,7 +34,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5D-tk-XA7">
-                                        <rect key="frame" x="192" y="0.0" width="192" height="80"/>
+                                        <rect key="frame" x="153.5" y="0.0" width="153.5" height="80"/>
                                         <color key="backgroundColor" red="0.5416402817" green="0.42802590130000001" blue="0.66946250200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <state key="normal" title="Employee">
@@ -42,15 +42,23 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aP0-8f-mu5">
-                                        <rect key="frame" x="384" y="0.0" width="192" height="80"/>
+                                        <rect key="frame" x="307" y="0.0" width="154" height="80"/>
                                         <color key="backgroundColor" red="0.5416402817" green="0.42802590130000001" blue="0.66946250200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <state key="normal" title="Manager">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKD-Nw-ho0">
+                                        <rect key="frame" x="461" y="0.0" width="153.5" height="80"/>
+                                        <color key="backgroundColor" red="0.5416402817" green="0.42802590130000001" blue="0.66946250200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <state key="normal" title="Contractor">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSx-vP-bQb">
-                                        <rect key="frame" x="576" y="0.0" width="192" height="80"/>
+                                        <rect key="frame" x="614.5" y="0.0" width="153.5" height="80"/>
                                         <color key="backgroundColor" red="0.5416402817" green="0.42802590130000001" blue="0.66946250200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <state key="normal" title="Vendor">
