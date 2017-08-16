@@ -32,6 +32,9 @@
                                         <state key="normal" title="Guest">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="guestCategorySelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rEE-fp-6AX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5D-tk-XA7">
                                         <rect key="frame" x="153.5" y="0.0" width="153.5" height="80"/>
@@ -40,6 +43,9 @@
                                         <state key="normal" title="Employee">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="employeeCategorySelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J8a-eZ-EES"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aP0-8f-mu5">
                                         <rect key="frame" x="307" y="0.0" width="154" height="80"/>
@@ -48,6 +54,9 @@
                                         <state key="normal" title="Manager">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="managerCategorySelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QRL-Hp-uKc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKD-Nw-ho0">
                                         <rect key="frame" x="461" y="0.0" width="153.5" height="80"/>
@@ -56,6 +65,9 @@
                                         <state key="normal" title="Contractor">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="contractorCategorySelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p3S-2b-LtJ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSx-vP-bQb">
                                         <rect key="frame" x="614.5" y="0.0" width="153.5" height="80"/>
@@ -64,6 +76,9 @@
                                         <state key="normal" title="Vendor">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="vendorCategorySelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ea5-RI-V3g"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -80,6 +95,9 @@
                                         <state key="normal" title="Child">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="subCategorySelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j6i-dc-Tlk"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPe-Cb-7dy">
                                         <rect key="frame" x="153.5" y="0.0" width="153.5" height="60"/>
@@ -88,6 +106,9 @@
                                         <state key="normal" title="Adult">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="subCategorySelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4CW-Jt-lpe"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1R-Jh-CzN">
                                         <rect key="frame" x="307" y="0.0" width="154" height="60"/>
@@ -96,6 +117,9 @@
                                         <state key="normal" title="Senior">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="subCategorySelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bkq-1P-4sZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIC-ae-dSq">
                                         <rect key="frame" x="461" y="0.0" width="153.5" height="60"/>
@@ -104,6 +128,9 @@
                                         <state key="normal" title="VIP">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="subCategorySelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Se1-Ks-Svl"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oke-mZ-Xzp">
                                         <rect key="frame" x="614.5" y="0.0" width="153.5" height="60"/>
@@ -112,6 +139,9 @@
                                         <state key="normal" title="Season">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="subCategorySelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wrc-80-Kj0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -422,6 +452,9 @@
                                         <state key="normal" title="Generate Pass">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="generatePass" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ksh-0d-b7c"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSr-2y-ACq">
                                         <rect key="frame" x="379" y="0.0" width="349" height="60"/>
@@ -430,6 +463,9 @@
                                         <state key="normal" title="Populate Data">
                                             <color key="titleColor" red="0.34568667409999998" green="0.5813914537" blue="0.55776214599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="populateData" destination="BYZ-38-t0r" eventType="touchUpInside" id="Stt-QG-4mE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -474,6 +510,27 @@
                             <constraint firstItem="sYS-SJ-A27" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vrO-jb-Cop"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityTextField" destination="DSG-py-ybP" id="KyA-nQ-FZH"/>
+                        <outlet property="companyTextField" destination="PIN-sh-7TX" id="86N-RL-Tp4"/>
+                        <outlet property="contractorCategoryButton" destination="iKD-Nw-ho0" id="YmM-at-vPT"/>
+                        <outlet property="dateOfBirthTextField" destination="F1m-9v-CcJ" id="8Y1-X6-kH7"/>
+                        <outlet property="employeeCategoryButton" destination="j5D-tk-XA7" id="MDW-5r-A5R"/>
+                        <outlet property="firstNameTextField" destination="7OB-3O-EDS" id="HSP-Gd-9hu"/>
+                        <outlet property="guestCategoryButton" destination="OU6-Af-eH7" id="umo-vD-SQm"/>
+                        <outlet property="lastNameTextField" destination="gQw-Nl-h9x" id="CZA-BW-phQ"/>
+                        <outlet property="managerCategoryButton" destination="aP0-8f-mu5" id="pSY-0h-5Sv"/>
+                        <outlet property="projectTextField" destination="QXK-v3-RZE" id="ZZb-87-jqF"/>
+                        <outlet property="stateTextField" destination="3mn-Yx-LOF" id="fMY-ug-Wez"/>
+                        <outlet property="streetAddressTextField" destination="yHX-Zb-R24" id="QJc-VT-yVN"/>
+                        <outlet property="subCategoryButton0" destination="X9v-X5-0wR" id="F6x-4r-OsE"/>
+                        <outlet property="subCategoryButton1" destination="YPe-Cb-7dy" id="OwU-8Z-Dbq"/>
+                        <outlet property="subCategoryButton2" destination="S1R-Jh-CzN" id="9nB-ne-pV2"/>
+                        <outlet property="subCategoryButton3" destination="rIC-ae-dSq" id="BdH-6a-Tn6"/>
+                        <outlet property="subCategoryButton4" destination="oke-mZ-Xzp" id="IRJ-Gb-5n4"/>
+                        <outlet property="vendorCategoryButton" destination="eSx-vP-bQb" id="Tt4-7i-Oqc"/>
+                        <outlet property="zipCodeTextField" destination="lL0-vy-gP0" id="mVl-18-M2H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
