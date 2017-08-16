@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E9036A2A1F3A54E30006CB1F /* EntrantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9036A291F3A54E30006CB1F /* EntrantModel.swift */; };
 		E98D13901F38E7350022A127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98D138F1F38E7350022A127 /* AppDelegate.swift */; };
-		E98D13921F38E7350022A127 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98D13911F38E7350022A127 /* ViewController.swift */; };
+		E98D13921F38E7350022A127 /* GeneratePassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98D13911F38E7350022A127 /* GeneratePassViewController.swift */; };
 		E98D13951F38E7350022A127 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E98D13931F38E7350022A127 /* Main.storyboard */; };
 		E98D13971F38E7350022A127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98D13961F38E7350022A127 /* Assets.xcassets */; };
 		E98D139A1F38E7350022A127 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E98D13981F38E7350022A127 /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		E9036A291F3A54E30006CB1F /* EntrantModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntrantModel.swift; sourceTree = "<group>"; };
 		E98D138C1F38E7350022A127 /* AmusementParkPassGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmusementParkPassGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98D138F1F38E7350022A127 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E98D13911F38E7350022A127 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E98D13911F38E7350022A127 /* GeneratePassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratePassViewController.swift; sourceTree = "<group>"; };
 		E98D13941F38E7350022A127 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E98D13961F38E7350022A127 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E98D13991F38E7350022A127 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				E98D138F1F38E7350022A127 /* AppDelegate.swift */,
-				E98D13911F38E7350022A127 /* ViewController.swift */,
+				E98D13911F38E7350022A127 /* GeneratePassViewController.swift */,
 				E9036A291F3A54E30006CB1F /* EntrantModel.swift */,
 				E98D13931F38E7350022A127 /* Main.storyboard */,
 				E98D13961F38E7350022A127 /* Assets.xcassets */,
@@ -140,7 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E98D13921F38E7350022A127 /* ViewController.swift in Sources */,
+				E98D13921F38E7350022A127 /* GeneratePassViewController.swift in Sources */,
 				E98D13901F38E7350022A127 /* AppDelegate.swift in Sources */,
 				E9036A2A1F3A54E30006CB1F /* EntrantModel.swift in Sources */,
 			);
@@ -271,6 +271,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alrashed.AmusementParkPassGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -284,6 +285,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alrashed.AmusementParkPassGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

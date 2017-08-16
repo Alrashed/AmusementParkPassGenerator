@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GeneratePassViewController.swift
 //  AmusementParkPassGenerator
 //
 //  Created by Khalid Alrashed on 8/7/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GeneratePassViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
