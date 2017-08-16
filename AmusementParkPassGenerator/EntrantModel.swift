@@ -8,13 +8,7 @@
 
 import Foundation
 
-// MARK: Error and Access enums
-
-enum AccessType {
-    case park, kitchen, rideControl, maintenance, office
-    case allRides, skipAllLines
-    case foodDiscount, merchandiseDiscount
-}
+// MARK: enums and structs
 
 enum InformationError: Error {
     case missingFirstName
@@ -108,36 +102,40 @@ protocol Nameable {
     var fullName: FullName { get }
 }
 
-protocol Ageable {
-    var dateOfBirth: Date { get }
-}
-
 protocol Addressable {
     var fullAddress: FullAddress { get }
 }
 
+protocol Ageable {
+    var dateOfBirth: Date { get }
+}
+
+protocol Dateable {
+    var dateOfVisit: Date { get }
+}
+
 // MARK: Entrant Protocols
 
-protocol Entrant {}
+protocol EntrantType {}
 
-protocol Guest: Entrant, AllRideAccessible, ParkAccessible {}
+protocol GuestType: EntrantType, AllRideAccessible, ParkAccessible {}
 
-protocol Employee: Entrant, Nameable, Addressable, ParkAccessible {}
+protocol EmployeeType: EntrantType, Nameable, Addressable, ParkAccessible {}
 
-protocol HourlyEmployee: Employee, AllRideAccessible, FoodDiscountAccessible, MerchandiseDiscountAccessible {}
+protocol HourlyEmployeeType: EmployeeType, AllRideAccessible, FoodDiscountAccessible, MerchandiseDiscountAccessible {}
 
 
 // MARK: - Entrant classes
 
 // Guests
-class ClassicGuest: Guest {}
+class ClassicGuest: GuestType {}
 
-class VIPGuest: Guest, SkipRideLineAccessible, FoodDiscountAccessible, MerchandiseDiscountAccessible {
+class VIPGuest: GuestType, SkipRideLineAccessible, FoodDiscountAccessible, MerchandiseDiscountAccessible {
     let merchandiseDiscountPercentage: Int = 10
     let foodDiscountPercentage: Int = 20
 }
 
-class FreeChildGuest: Guest, Ageable {
+class FreeChildGuest: GuestType, Ageable {
     let dateOfBirth: Date
     
     init(month: Int, day: Int, year: Int) throws {
@@ -158,7 +156,7 @@ class FreeChildGuest: Guest, Ageable {
 }
 
 // Employees
-class ParkEmployee: HourlyEmployee {
+class Employee: HourlyEmployeeType {
     var foodDiscountPercentage: Int = 15
     let merchandiseDiscountPercentage: Int = 25
     let fullName: FullName
@@ -170,13 +168,13 @@ class ParkEmployee: HourlyEmployee {
     }
 }
 
-class FoodServicesEmployee: ParkEmployee, KitchenAccessible {}
+class FoodServicesEmployee: Employee, KitchenAccessible {}
 
-class RideServicesEmployee: ParkEmployee, RideControlAccessible {}
+class RideServicesEmployee: Employee, RideControlAccessible {}
 
-class MaintenanceEmployee: ParkEmployee, KitchenAccessible, RideControlAccessible, MaintenanceAccessible {}
+class MaintenanceEmployee: Employee, KitchenAccessible, RideControlAccessible, MaintenanceAccessible {}
 
-class Manager: ParkEmployee, KitchenAccessible, RideControlAccessible, MaintenanceAccessible, OfficeAccessible {
+class Manager: Employee, KitchenAccessible, RideControlAccessible, MaintenanceAccessible, OfficeAccessible {
     override init(fullName: FullName, fullAddress: FullAddress) {
         super.init(fullName: fullName, fullAddress: fullAddress)
         self.foodDiscountPercentage = 25
