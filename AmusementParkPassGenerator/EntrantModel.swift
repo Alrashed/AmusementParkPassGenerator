@@ -111,7 +111,7 @@ protocol Ageable {
 }
 
 protocol Dateable {
-    var dateOfVisit: Date { get }
+    var dateOfVisit: Date? { get set }
 }
 
 // MARK: Entrant Protocols
@@ -123,6 +123,10 @@ protocol GuestType: EntrantType, AllRideAccessible, ParkAccessible {}
 protocol EmployeeType: EntrantType, Nameable, Addressable, ParkAccessible {}
 
 protocol HourlyEmployeeType: EmployeeType, AllRideAccessible, FoodDiscountAccessible, MerchandiseDiscountAccessible {}
+
+protocol ContractorType: EntrantType, Nameable, Addressable {}
+
+protocol VendorType: EntrantType, Nameable, Dateable, Ageable {}
 
 
 // MARK: - Entrant classes
@@ -155,7 +159,44 @@ class FreeChildGuest: GuestType, Ageable {
     }
 }
 
-// Employees
+class SeasonPassGuest: GuestType, Nameable, Addressable, SkipRideLineAccessible, FoodDiscountAccessible, MerchandiseDiscountAccessible {
+    var foodDiscountPercentage: Int = 10
+    let merchandiseDiscountPercentage: Int = 20
+    let fullName: FullName
+    let fullAddress: FullAddress
+    
+    init(fullName: FullName, fullAddress: FullAddress) {
+        self.fullName = fullName
+        self.fullAddress = fullAddress
+    }
+}
+
+class SeniorGuest: GuestType, Nameable, Ageable, SkipRideLineAccessible, FoodDiscountAccessible, MerchandiseDiscountAccessible {
+    var foodDiscountPercentage: Int = 10
+    let merchandiseDiscountPercentage: Int = 20
+    let fullName: FullName
+    let dateOfBirth: Date
+    
+    init(fullName: FullName, month: Int, day: Int, year: Int) throws {
+        self.fullName = fullName
+        
+        guard let dateOfBirth = Calendar.current.date(from: DateComponents(year: year, month: month, day: day)) else {
+            throw InformationError.invalidDateOfBirth
+        }
+        
+        if let age = Calendar.current.dateComponents([.month], from: dateOfBirth, to: Date()).month {
+            let years = age / 12
+            
+            if years < 60 {
+                throw InformationError.invalidAge
+            }
+        }
+        
+        self.dateOfBirth = dateOfBirth
+    }
+}
+
+// Hourly Employees
 class Employee: HourlyEmployeeType {
     var foodDiscountPercentage: Int = 15
     let merchandiseDiscountPercentage: Int = 25
@@ -181,4 +222,48 @@ class Manager: Employee, KitchenAccessible, RideControlAccessible, MaintenanceAc
     }
 }
 
+// Contractors
+class Contractor: ContractorType {
+    let fullName: FullName
+    let fullAddress: FullAddress
+    
+    init(fullName: FullName, fullAddress: FullAddress) {
+        self.fullName = fullName
+        self.fullAddress = fullAddress
+    }
+}
+
+class ContractorProject1001: Contractor, ParkAccessible, RideControlAccessible {}
+
+class ContractorProject1002: Contractor, ParkAccessible, RideControlAccessible, MaintenanceAccessible {}
+
+class ContractorProject1003: Contractor, ParkAccessible, RideControlAccessible, KitchenAccessible, MaintenanceAccessible, OfficeAccessible {}
+
+class ContractorProject2001: Contractor, OfficeAccessible {}
+
+class ContractorProject2002: Contractor, KitchenAccessible, OfficeAccessible {}
+
+// Vendors
+class Vendor: VendorType {
+    let fullName: FullName
+    let dateOfBirth: Date
+    var dateOfVisit: Date?
+    
+    init(fullName: FullName, month: Int, day: Int, year: Int) throws {
+        self.fullName = fullName
+        
+        guard let dateOfBirth = Calendar.current.date(from: DateComponents(year: year, month: month, day: day)) else {
+            throw InformationError.invalidDateOfBirth
+        }
+        self.dateOfBirth = dateOfBirth
+    }
+}
+
+class Acme: Vendor, KitchenAccessible {}
+
+class Orkin: Vendor, ParkAccessible, RideControlAccessible, KitchenAccessible {}
+
+class Fedex: Vendor, MaintenanceAccessible, OfficeAccessible {}
+
+class NWElectrical: Vendor, ParkAccessible, RideControlAccessible, KitchenAccessible, MaintenanceAccessible, OfficeAccessible {}
 
