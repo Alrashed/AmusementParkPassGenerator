@@ -14,6 +14,7 @@
 		E98D13971F38E7350022A127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98D13961F38E7350022A127 /* Assets.xcassets */; };
 		E98D139A1F38E7350022A127 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E98D13981F38E7350022A127 /* LaunchScreen.storyboard */; };
 		E9B6A1561F44ED1D00FEBDE5 /* PassScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B6A1551F44ED1D00FEBDE5 /* PassScanner.swift */; };
+		E9B6A1581F4518DF00FEBDE5 /* EntrantGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B6A1571F4518DF00FEBDE5 /* EntrantGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E98D13991F38E7350022A127 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E98D139B1F38E7350022A127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9B6A1551F44ED1D00FEBDE5 /* PassScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassScanner.swift; sourceTree = "<group>"; };
+		E9B6A1571F4518DF00FEBDE5 /* EntrantGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntrantGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				E98D138F1F38E7350022A127 /* AppDelegate.swift */,
 				E9036A291F3A54E30006CB1F /* EntrantModel.swift */,
+				E9B6A1571F4518DF00FEBDE5 /* EntrantGenerator.swift */,
 				E9B6A1551F44ED1D00FEBDE5 /* PassScanner.swift */,
 				E98D13911F38E7350022A127 /* GeneratePassViewController.swift */,
 				E98D13931F38E7350022A127 /* Main.storyboard */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E98D13921F38E7350022A127 /* GeneratePassViewController.swift in Sources */,
+				E9B6A1581F4518DF00FEBDE5 /* EntrantGenerator.swift in Sources */,
 				E9B6A1561F44ED1D00FEBDE5 /* PassScanner.swift in Sources */,
 				E98D13901F38E7350022A127 /* AppDelegate.swift in Sources */,
 				E9036A2A1F3A54E30006CB1F /* EntrantModel.swift in Sources */,
