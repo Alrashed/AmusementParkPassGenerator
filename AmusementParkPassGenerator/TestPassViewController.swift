@@ -54,10 +54,49 @@ class TestPassViewController: UIViewController {
     }
     
     @IBAction func accessTestSelected(_ sender: UIButton) {
-        showPassTestResults()
+        guard let selectedAccessTest = sender.titleLabel?.text else { return }
+        
+        var accessType: AccessType?
+        
+        switch selectedAccessTest {
+        case "Park Area": accessType = .park
+            
+        case "Kitchen Area": accessType = .kitchen
+            
+        case "Ride Control": accessType = .rideControl
+            
+        case "Maintenance": accessType = .maintenance
+            
+        case "Office": accessType = .office
+            
+        case "All Rides": accessType = .allRides
+            
+        case "Skip Ride Lines": accessType = .skipAllLines
+            
+        case "Food Discounts": accessType = .foodDiscount
+            
+        case "Merchandise Discounts": accessType = .merchandiseDiscount
+            
+        default:
+            print("Error selecting access test")
+        }
+        
+        if let accessType = accessType {
+            showPassTestResults(accessType)
+        }
     }
     
-    func showPassTestResults() {
+    func showPassTestResults(_ accessType: AccessType) {
+        testResultsLabel.textColor = UIColor.white
+        
+        if passScanner.swipe(entrant: entrant, accessType: accessType) {
+            testResultsLabel.backgroundColor = UIColor.green
+            testResultsLabel.text = "Access to \(accessType.accessDescription) is allowed"
+        } else {
+            testResultsLabel.backgroundColor = UIColor.red
+            testResultsLabel.text = "Access to \(accessType.accessDescription) is NOT allowed"
+        }
+        
         hideTestAccessButtons()
     }
     

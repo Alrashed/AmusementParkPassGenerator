@@ -55,12 +55,6 @@ class PassScanner {
             access = entrant is MerchandiseDiscountAccessible
         }
         
-        if access {
-            print("Access granted to \(accessType)")
-        } else {
-            print("Access denied to \(accessType)")
-        }
-        
         return access
     }
 }
