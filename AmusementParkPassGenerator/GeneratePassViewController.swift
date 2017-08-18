@@ -174,9 +174,68 @@ class GeneratePassViewController: UIViewController {
     }
     
     @IBAction func generatePass() {
+        if var person = entrant as? Nameable {
+            do {
+                person.fullName = try FullName(firstName: firstNameTextField.text!, lastName: lastNameTextField.text!)
+            } catch let error as InformationError {
+                let alert = UIAlertController(title: error.alertTitle, message: error.alertMessage, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(action)
+                present(alert, animated: true, completion: nil)
+            } catch {
+                print("\(error)")
+            }
+        }
         
+        if var person = entrant as? Addressable {
+            do {
+                person.fullAddress = try FullAddress(streetAddress: streetAddressTextField.text!, city: cityTextField.text!, state: stateTextField.text!, zipCode: Int(zipCodeTextField.text!)!)
+            } catch let error as InformationError {
+                let alert = UIAlertController(title: error.alertTitle, message: error.alertMessage, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(action)
+                present(alert, animated: true, completion: nil)
+            } catch {
+                print("\(error)")
+            }
+        }
+        
+        if var person = entrant as? Ageable {
+            do {
+                person.dateOfBirth = try getDateOfBirth()
+            } catch let error as InformationError {
+                let alert = UIAlertController(title: error.alertTitle, message: error.alertMessage, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(action)
+                present(alert, animated: true, completion: nil)
+            } catch {
+                print("\(error)")
+            }
+        }
     }
     
+    func getDateOfBirth() throws -> Date {
+        let dateForamtter = DateFormatter()
+        dateForamtter.dateFormat = "MM/dd/yyyy"
+        
+        guard let date = dateForamtter.date(from: dateOfBirthTextField.text!) else {
+            throw InformationError.invalidDateOfBirth
+        }
+        
+        if let age = Calendar.current.dateComponents([.month], from: date, to: Date()).month {
+            let years = (age / 12)
+            
+            if entrant is FreeChildGuest && years >= 5 {
+                throw InformationError.tooOld
+            }
+            
+            if entrant is SeniorGuest && years < 60 {
+                throw InformationError.tooYoung
+            }
+        }
+        
+        return date
+    }
     
     func configureSubCategoryButtons(_ buttonLabels: [String]) {
         for (index, label) in buttonLabels.enumerated() {
