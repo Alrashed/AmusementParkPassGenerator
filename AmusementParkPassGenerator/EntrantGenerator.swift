@@ -9,47 +9,77 @@
 import Foundation
 
 enum Guest: String {
-    case classic
-    case VIP
-    case FreeChild
-    case SeasonPass
-    case Senior
+    case classic    = "Classic"
+    case vip        = "VIP"
+    case freeChild  = "Child"
+    case seasonPass = "Season"
+    case senior     = "Senior"
+    
+    var passDescription: String {
+        switch self {
+        case .classic, .vip, .freeChild, .seasonPass, .senior:
+            return "\(self.rawValue) Guest Pass"
+        }
+    }
 }
 
 enum HourlyEmployee: String {
-    case foodServices
-    case rideServices
-    case maintenance
-    case manager
+    case foodServices = "Food Services"
+    case rideServices = "Ride Services"
+    case maintenance  = "Maintenance"
+    case manager      = "Manager"
+    
+    var passDescription: String {
+        switch self {
+        case .foodServices, .rideServices, .maintenance:
+            return "\(self.rawValue) Employee Pass"
+        case .manager:
+            return "\(self.rawValue) Pass"
+        }
+    }
 }
 
 enum ContractorProject: String {
-    case p1001
-    case p1002
-    case p1003
-    case p2001
-    case p2002
+    case p1001 = "1001"
+    case p1002 = "1002"
+    case p1003 = "1003"
+    case p2001 = "2001"
+    case p2002 = "2002"
+    
+    var passDescription: String {
+        switch self {
+        case .p1001, .p1002, .p1003, .p2001, .p2002:
+            return "Project \(self.rawValue) Contractor Pass"
+        }
+    }
 }
 
 enum VendorCompany: String {
-    case acme
-    case orkin
-    case fedex
-    case nwElectric
+    case acme       = "Acme"
+    case orkin      = "Orkin"
+    case fedex      = "Fedex"
+    case nwElectric = "NW Electrical"
+    
+    var passDescription: String {
+        switch self {
+        case .acme, .orkin, .fedex, .nwElectric:
+            return "\(self.rawValue) Vendor Pass"
+        }
+    }
 }
 
 class EntrantGenerator {
     
-    let fullName = try! FullName(firstName: "Khalid", lastName: "Alrashed")
-    let fullAddress = try! FullAddress(streetAddress: "123 street", city: "SF", state: "CA", zipCode: 12345)
+    private let fullName = try! FullName(firstName: "Khalid", lastName: "Alrashed")
+    private let fullAddress = try! FullAddress(streetAddress: "123 street", city: "SF", state: "CA", zipCode: 12345)
     
     func generateGuest(_ guest: Guest) -> GuestType {
         switch guest {
         case .classic: return ClassicGuest()
-        case .VIP: return VIPGuest()
-        case .FreeChild: return try! FreeChildGuest(month: 1, day: 1, year: 2017)
-        case .SeasonPass: return SeasonPassGuest(fullName: fullName, fullAddress: fullAddress)
-        case .Senior: return try! SeniorGuest(fullName: fullName, month: 1, day: 1, year: 1950)
+        case .vip: return VIPGuest()
+        case .freeChild: return try! FreeChildGuest(month: 1, day: 1, year: 2017)
+        case .seasonPass: return SeasonPassGuest(fullName: fullName, fullAddress: fullAddress)
+        case .senior: return try! SeniorGuest(fullName: fullName, month: 1, day: 1, year: 1950)
         }
     }
     
