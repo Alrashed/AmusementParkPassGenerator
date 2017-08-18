@@ -9,12 +9,6 @@
 import UIKit
 
 class GeneratePassViewController: UIViewController {
-    @IBOutlet weak var guestCategoryButton: UIButton!
-    @IBOutlet weak var employeeCategoryButton: UIButton!
-    @IBOutlet weak var managerCategoryButton: UIButton!
-    @IBOutlet weak var contractorCategoryButton: UIButton!
-    @IBOutlet weak var vendorCategoryButton: UIButton!
-    
     @IBOutlet weak var subCategoryButton0: UIButton!
     @IBOutlet weak var subCategoryButton1: UIButton!
     @IBOutlet weak var subCategoryButton2: UIButton!
@@ -31,7 +25,6 @@ class GeneratePassViewController: UIViewController {
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var zipCodeTextField: UITextField!
     
-    var categoryButtons = [UIButton]()
     var subCategoryButtons = [UIButton]()
     
     var generator = EntrantGenerator()
@@ -41,7 +34,6 @@ class GeneratePassViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        categoryButtons = [guestCategoryButton, employeeCategoryButton, managerCategoryButton, contractorCategoryButton, vendorCategoryButton]
         subCategoryButtons = [subCategoryButton0, subCategoryButton1, subCategoryButton2, subCategoryButton3, subCategoryButton4]
         
         subCategorySelected(subCategoryButton0)

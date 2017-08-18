@@ -50,11 +50,6 @@ enum InformationError: Error {
     }
 }
 
-//enum DateOfBirthError: Error {
-//    case tooOld
-//    case tooYoung
-//}
-
 struct FullName {
     let firstName: String
     let lastName: String

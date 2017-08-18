@@ -533,13 +533,9 @@
                     <connections>
                         <outlet property="cityTextField" destination="DSG-py-ybP" id="KyA-nQ-FZH"/>
                         <outlet property="companyTextField" destination="PIN-sh-7TX" id="86N-RL-Tp4"/>
-                        <outlet property="contractorCategoryButton" destination="iKD-Nw-ho0" id="YmM-at-vPT"/>
                         <outlet property="dateOfBirthTextField" destination="F1m-9v-CcJ" id="8Y1-X6-kH7"/>
-                        <outlet property="employeeCategoryButton" destination="j5D-tk-XA7" id="MDW-5r-A5R"/>
                         <outlet property="firstNameTextField" destination="7OB-3O-EDS" id="HSP-Gd-9hu"/>
-                        <outlet property="guestCategoryButton" destination="OU6-Af-eH7" id="umo-vD-SQm"/>
                         <outlet property="lastNameTextField" destination="gQw-Nl-h9x" id="CZA-BW-phQ"/>
-                        <outlet property="managerCategoryButton" destination="aP0-8f-mu5" id="pSY-0h-5Sv"/>
                         <outlet property="projectTextField" destination="QXK-v3-RZE" id="ZZb-87-jqF"/>
                         <outlet property="stateTextField" destination="3mn-Yx-LOF" id="fMY-ug-Wez"/>
                         <outlet property="streetAddressTextField" destination="yHX-Zb-R24" id="QJc-VT-yVN"/>
@@ -548,7 +544,6 @@
                         <outlet property="subCategoryButton2" destination="S1R-Jh-CzN" id="9nB-ne-pV2"/>
                         <outlet property="subCategoryButton3" destination="rIC-ae-dSq" id="BdH-6a-Tn6"/>
                         <outlet property="subCategoryButton4" destination="oke-mZ-Xzp" id="IRJ-Gb-5n4"/>
-                        <outlet property="vendorCategoryButton" destination="eSx-vP-bQb" id="Tt4-7i-Oqc"/>
                         <outlet property="zipCodeTextField" destination="lL0-vy-gP0" id="mVl-18-M2H"/>
                     </connections>
                 </viewController>
