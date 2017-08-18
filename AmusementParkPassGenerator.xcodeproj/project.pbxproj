@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E9036A2A1F3A54E30006CB1F /* EntrantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9036A291F3A54E30006CB1F /* EntrantModel.swift */; };
+		E9081C2E1F468C1E007DB0C1 /* TestPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9081C2D1F468C1E007DB0C1 /* TestPassViewController.swift */; };
 		E98D13901F38E7350022A127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98D138F1F38E7350022A127 /* AppDelegate.swift */; };
 		E98D13921F38E7350022A127 /* GeneratePassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98D13911F38E7350022A127 /* GeneratePassViewController.swift */; };
 		E98D13951F38E7350022A127 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E98D13931F38E7350022A127 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		E9036A291F3A54E30006CB1F /* EntrantModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntrantModel.swift; sourceTree = "<group>"; };
+		E9081C2D1F468C1E007DB0C1 /* TestPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPassViewController.swift; sourceTree = "<group>"; };
 		E98D138C1F38E7350022A127 /* AmusementParkPassGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmusementParkPassGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98D138F1F38E7350022A127 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E98D13911F38E7350022A127 /* GeneratePassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratePassViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				E9B6A1571F4518DF00FEBDE5 /* EntrantGenerator.swift */,
 				E9B6A1551F44ED1D00FEBDE5 /* PassScanner.swift */,
 				E98D13911F38E7350022A127 /* GeneratePassViewController.swift */,
+				E9081C2D1F468C1E007DB0C1 /* TestPassViewController.swift */,
 				E98D13931F38E7350022A127 /* Main.storyboard */,
 				E98D13961F38E7350022A127 /* Assets.xcassets */,
 				E98D13981F38E7350022A127 /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 				E9B6A1561F44ED1D00FEBDE5 /* PassScanner.swift in Sources */,
 				E98D13901F38E7350022A127 /* AppDelegate.swift in Sources */,
 				E9036A2A1F3A54E30006CB1F /* EntrantModel.swift in Sources */,
+				E9081C2E1F468C1E007DB0C1 /* TestPassViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
