@@ -144,7 +144,33 @@ class GeneratePassViewController: UIViewController {
     
     
     @IBAction func populateData() {
+        if dateOfBirthTextField.isEnabled && dateOfBirthTextField.text!.isEmpty {
+            dateOfBirthTextField.text = "11/25/1950"
+        }
         
+        if firstNameTextField.isEnabled && firstNameTextField.text!.isEmpty {
+            firstNameTextField.text = "Khalid"
+        }
+        
+        if lastNameTextField.isEnabled && lastNameTextField.text!.isEmpty {
+            lastNameTextField.text = "Alrashed"
+        }
+        
+        if streetAddressTextField.isEnabled && streetAddressTextField.text!.isEmpty {
+            streetAddressTextField.text = "123 street"
+        }
+        
+        if cityTextField.isEnabled && cityTextField.text!.isEmpty {
+            cityTextField.text = "SF"
+        }
+        
+        if stateTextField.isEnabled && stateTextField.text!.isEmpty {
+            stateTextField.text = "CA"
+        }
+        
+        if zipCodeTextField.isEnabled && zipCodeTextField.text!.isEmpty {
+            zipCodeTextField.text = "12345"
+        }
     }
     
     @IBAction func generatePass() {
