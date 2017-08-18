@@ -31,37 +31,137 @@ class GeneratePassViewController: UIViewController {
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var zipCodeTextField: UITextField!
     
+    var categoryButtons = [UIButton]()
+    var subCategoryButtons = [UIButton]()
+    
+    var generator = EntrantGenerator()
+    var entrant: EntrantType!
+    var passDescription = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        categoryButtons = [guestCategoryButton, employeeCategoryButton, managerCategoryButton, contractorCategoryButton, vendorCategoryButton]
+        subCategoryButtons = [subCategoryButton0, subCategoryButton1, subCategoryButton2, subCategoryButton3, subCategoryButton4]
+        
+        subCategorySelected(subCategoryButton0)
     }
     
     @IBAction func guestCategorySelected(_ sender: UIButton) {
+        configureSubCategoryButtons(["Classic", "Child", "Senior", "VIP", "Season"])
+        subCategorySelected(sender)
     }
     
     @IBAction func employeeCategorySelected(_ sender: UIButton) {
+        configureSubCategoryButtons(["Food Services", "Ride Services", "Maintenance"])
+        subCategorySelected(sender)
     }
     
     @IBAction func managerCategorySelected(_ sender: UIButton) {
+        configureSubCategoryButtons([])
+        subCategorySelected(sender)
     }
     
     @IBAction func contractorCategorySelected(_ sender: UIButton) {
+        configureSubCategoryButtons(["1001", "1002", "1003", "2001", "2002"])
+        subCategorySelected(sender)
     }
     
     @IBAction func vendorCategorySelected(_ sender: UIButton) {
+        configureSubCategoryButtons(["Acme", "Orkin", "Fedex", "NW Electrical"])
+        subCategorySelected(sender)
     }
     
     
     @IBAction func subCategorySelected(_ sender: UIButton) {
+        guard let selectedCategory = sender.titleLabel?.text else { return }
+        
+        switch selectedCategory {
+            
+        case "Guest", "Classic":
+            entrant = generator.generateGuest(.classic)
+            passDescription = Guest.classic.passDescription
+            
+        case "Child":
+            entrant = generator.generateGuest(.freeChild)
+            passDescription = Guest.freeChild.passDescription
+            
+        case "Senior":
+            entrant = generator.generateGuest(.senior)
+            passDescription = Guest.senior.passDescription
+            
+        case "VIP":
+            entrant = generator.generateGuest(.vip)
+            passDescription = Guest.vip.passDescription
+            
+        case "Season":
+            entrant = generator.generateGuest(.seasonPass)
+            passDescription = Guest.seasonPass.passDescription
+            
+        case "Employee", "Food Services":
+            entrant = generator.generateEmployee(.foodServices)
+            passDescription = HourlyEmployee.foodServices.passDescription
+            
+        case "Ride Services":
+            entrant = generator.generateEmployee(.rideServices)
+            passDescription = HourlyEmployee.rideServices.passDescription
+            
+        case "Maintenance":
+            entrant = generator.generateEmployee(.maintenance)
+            passDescription = HourlyEmployee.maintenance.passDescription
+            
+        case "Manager":
+            entrant = generator.generateEmployee(.manager)
+            passDescription = HourlyEmployee.manager.passDescription
+            
+        case "Contractor", "1001":
+            entrant = generator.generateContractor(.p1001)
+            passDescription = ContractorProject.p1001.passDescription
+            projectTextField.text = ContractorProject.p1001.rawValue
+            
+        case "1002", "1003", "2001", "2002":
+            entrant = generator.generateContractor(ContractorProject(rawValue: selectedCategory)!)
+            passDescription = ContractorProject(rawValue: selectedCategory)!.passDescription
+            projectTextField.text = ContractorProject(rawValue: selectedCategory)!.rawValue
+            
+        case "Vendor", "Acme":
+            entrant = generator.generateVendor(.acme)
+            passDescription = VendorCompany.acme.passDescription
+            companyTextField.text = VendorCompany.acme.rawValue
+            
+        case "Orkin", "Fedex", "NW Electrical":
+            entrant = generator.generateVendor(VendorCompany(rawValue: selectedCategory)!)
+            passDescription = VendorCompany(rawValue: selectedCategory)!.passDescription
+            companyTextField.text = VendorCompany(rawValue: selectedCategory)!.rawValue
+            
+        default: print("Error selecting a category")
+        }
+        
+        print(passDescription)
     }
     
-    
-    @IBAction func generatePass() {
-    }
     
     @IBAction func populateData() {
+        
     }
     
+    @IBAction func generatePass() {
+        
+    }
+    
+    
+    func configureSubCategoryButtons(_ buttonLabels: [String]) {
+        for (index, label) in buttonLabels.enumerated() {
+            subCategoryButtons[index].setTitle(label, for: .normal)
+        }
+        
+        for buttonIndex in 0..<buttonLabels.count {
+            subCategoryButtons[buttonIndex].isHidden = false
+        }
+        
+        for buttonIndex in buttonLabels.count..<subCategoryButtons.count {
+            subCategoryButtons[buttonIndex].isHidden = true
+        }
+    }
 }
 
