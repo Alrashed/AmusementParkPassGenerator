@@ -18,8 +18,42 @@ enum InformationError: Error {
     case missingState
     case missingZipCode
     case invalidDateOfBirth
-    case invalidAge
+    case tooOld
+    case tooYoung
+    
+    var alertTitle: String {
+        switch self {
+        case .missingFirstName: return "Missing First Name"
+        case .missingLastName: return " Missing Last Name"
+        case .missingStreetAddress: return "Missing Street Address"
+        case .missingCity: return "Missing City"
+        case .missingState: return "Missing State"
+        case .missingZipCode: return "Missing ZipCode"
+        case .invalidDateOfBirth: return "Invalid Date of Birth"
+        case .tooOld: return "Entrant is Too Old"
+        case .tooYoung: return "Entrant is Too Young"
+        }
+    }
+    
+    var alertMessage: String {
+        switch self {
+        case .missingFirstName: return "Please fill in the first name field."
+        case .missingLastName: return " Please fill in the last name field."
+        case .missingStreetAddress: return "Please fill in the street address field."
+        case .missingCity: return "Please fill in the city field."
+        case .missingState: return "Please fill in the state field."
+        case .missingZipCode: return "Please fill in the zip code field."
+        case .invalidDateOfBirth: return "Please retype the date of birth."
+        case .tooOld: return "Please choose another pass."
+        case .tooYoung: return "Please choose another pass."
+        }
+    }
 }
+
+//enum DateOfBirthError: Error {
+//    case tooOld
+//    case tooYoung
+//}
 
 struct FullName {
     let firstName: String
@@ -99,15 +133,15 @@ protocol MerchandiseDiscountAccessible: DiscountAccessible {
 // MARK: Personal/Business Information Protocols
 
 protocol Nameable {
-    var fullName: FullName { get }
+    var fullName: FullName { get set }
 }
 
 protocol Addressable {
-    var fullAddress: FullAddress { get }
+    var fullAddress: FullAddress { get set }
 }
 
 protocol Ageable {
-    var dateOfBirth: Date { get }
+    var dateOfBirth: Date { get set }
 }
 
 protocol Dateable {
@@ -140,7 +174,7 @@ class VIPGuest: GuestType, SkipRideLineAccessible, FoodDiscountAccessible, Merch
 }
 
 class FreeChildGuest: GuestType, Ageable {
-    let dateOfBirth: Date
+    var dateOfBirth: Date
     
     init(month: Int, day: Int, year: Int) throws {
         guard let dateOfBirth = Calendar.current.date(from: DateComponents(year: year, month: month, day: day)) else {
@@ -151,7 +185,7 @@ class FreeChildGuest: GuestType, Ageable {
             let years = age / 12
             
             if years >= 5 {
-                throw InformationError.invalidAge
+                throw InformationError.tooOld
             }
         }
         
@@ -160,10 +194,10 @@ class FreeChildGuest: GuestType, Ageable {
 }
 
 class SeasonPassGuest: GuestType, Nameable, Addressable, SkipRideLineAccessible, FoodDiscountAccessible, MerchandiseDiscountAccessible {
-    var foodDiscountPercentage: Int = 10
+    let foodDiscountPercentage: Int = 10
     let merchandiseDiscountPercentage: Int = 20
-    let fullName: FullName
-    let fullAddress: FullAddress
+    var fullName: FullName
+    var fullAddress: FullAddress
     
     init(fullName: FullName, fullAddress: FullAddress) {
         self.fullName = fullName
@@ -172,10 +206,10 @@ class SeasonPassGuest: GuestType, Nameable, Addressable, SkipRideLineAccessible,
 }
 
 class SeniorGuest: GuestType, Nameable, Ageable, SkipRideLineAccessible, FoodDiscountAccessible, MerchandiseDiscountAccessible {
-    var foodDiscountPercentage: Int = 10
+    let foodDiscountPercentage: Int = 10
     let merchandiseDiscountPercentage: Int = 20
-    let fullName: FullName
-    let dateOfBirth: Date
+    var fullName: FullName
+    var dateOfBirth: Date
     
     init(fullName: FullName, month: Int, day: Int, year: Int) throws {
         self.fullName = fullName
@@ -188,7 +222,7 @@ class SeniorGuest: GuestType, Nameable, Ageable, SkipRideLineAccessible, FoodDis
             let years = age / 12
             
             if years < 60 {
-                throw InformationError.invalidAge
+                throw InformationError.tooYoung
             }
         }
         
@@ -200,8 +234,8 @@ class SeniorGuest: GuestType, Nameable, Ageable, SkipRideLineAccessible, FoodDis
 class Employee: HourlyEmployeeType {
     var foodDiscountPercentage: Int = 15
     let merchandiseDiscountPercentage: Int = 25
-    let fullName: FullName
-    let fullAddress: FullAddress
+    var fullName: FullName
+    var fullAddress: FullAddress
 
     init(fullName: FullName, fullAddress: FullAddress) {
         self.fullName = fullName
@@ -224,8 +258,8 @@ class Manager: Employee, KitchenAccessible, RideControlAccessible, MaintenanceAc
 
 // Contractors
 class Contractor: ContractorType {
-    let fullName: FullName
-    let fullAddress: FullAddress
+    var fullName: FullName
+    var fullAddress: FullAddress
     
     init(fullName: FullName, fullAddress: FullAddress) {
         self.fullName = fullName
@@ -245,8 +279,8 @@ class ContractorProject2002: Contractor, KitchenAccessible, OfficeAccessible {}
 
 // Vendors
 class Vendor: VendorType {
-    let fullName: FullName
-    let dateOfBirth: Date
+    var fullName: FullName
+    var dateOfBirth: Date
     var dateOfVisit: Date?
     
     init(fullName: FullName, month: Int, day: Int, year: Int) throws {
