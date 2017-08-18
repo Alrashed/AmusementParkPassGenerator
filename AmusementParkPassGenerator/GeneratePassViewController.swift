@@ -173,6 +173,14 @@ class GeneratePassViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowPass" {
+            let testPassViewController = segue.destination as! TestPassViewController
+            testPassViewController.entrant = entrant
+            testPassViewController.passDescription = passDescription
+        }
+    }
+    
     @IBAction func generatePass() {
         if var person = entrant as? Nameable {
             do {

@@ -21,6 +21,9 @@ class TestPassViewController: UIViewController {
     @IBOutlet weak var testAccessButton2: UIButton!
     @IBOutlet weak var testAccessButton3: UIButton!
     @IBOutlet weak var testAccessButton4: UIButton!
+    
+    var entrant: EntrantType!
+    var passDescription: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
