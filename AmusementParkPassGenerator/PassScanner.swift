@@ -8,15 +8,29 @@
 
 import Foundation
 
-enum AccessType {
+enum AccessType: String {
     case park, kitchen, rideControl, maintenance, office
     case allRides, skipAllLines
     case foodDiscount, merchandiseDiscount
+    
+    var accessDescription: String {
+        switch self {
+        case .park: return "Amusement Park"
+        case .kitchen: return "Kitchen"
+        case .rideControl: return "Ride Control"
+        case .maintenance: return "Maintenance"
+        case .office: return "Office"
+        case .allRides: return "All Rides"
+        case .skipAllLines: return "Skip Ride Lines"
+        case .foodDiscount: return "Food Discounts"
+        case .merchandiseDiscount: return "Merchandise Discounts"
+        }
+    }
 }
 
 class PassScanner {
     
-    func swipe(entrant: EntrantType, accessType: AccessType) {
+    func swipe(entrant: EntrantType, accessType: AccessType) -> Bool {
         
         var access = false
         
@@ -46,5 +60,7 @@ class PassScanner {
         } else {
             print("Access denied to \(accessType)")
         }
+        
+        return access
     }
 }
