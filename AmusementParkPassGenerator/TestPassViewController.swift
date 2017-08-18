@@ -22,13 +22,18 @@ class TestPassViewController: UIViewController {
     @IBOutlet weak var testAccessButton3: UIButton!
     @IBOutlet weak var testAccessButton4: UIButton!
     
+    var testAccessButtons = [UIButton]()
+    
+    let passScanner = PassScanner()
     var entrant: EntrantType!
     var passDescription: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        testAccessButtons = [testAccessButton0, testAccessButton1, testAccessButton2, testAccessButton3, testAccessButton4]
         
+        configurePassLabels()
     }
     
     @IBAction func createNewPass(_ sender: UIButton) {
@@ -36,14 +41,46 @@ class TestPassViewController: UIViewController {
     }
     
     @IBAction func showAreaAccessTests(_ sender: UIButton) {
+        
     }
     
     @IBAction func showRideAccessTests(_ sender: UIButton) {
+        
     }
     
     @IBAction func showDiscountAccessTests(_ sender: UIButton) {
+        
     }
     
     @IBAction func accessTestSelected(_ sender: UIButton) {
+        
+    }
+    
+    func configurePassLabels() {
+        if let entrant = entrant as? Nameable {
+            fullNameLabel.text = "\(entrant.fullName.firstName) \(entrant.fullName.lastName)"
+        } else {
+            fullNameLabel.text = ""
+        }
+        
+        passDescriptionLabel.text = passDescription
+        
+        if entrant is AllRideAccessible {
+            rideDescriptionLabel.text = "• Unlimited Rides"
+        } else {
+            rideDescriptionLabel.text = ""
+        }
+        
+        if let entrant = entrant as? FoodDiscountAccessible {
+            foodDiscountLabel.text = "• \(entrant.foodDiscountPercentage)% Food Discount"
+        } else {
+            foodDiscountLabel.text = ""
+        }
+        
+        if let entrant = entrant as? MerchandiseDiscountAccessible {
+            merchDiscountLabel.text = "• \(entrant.merchandiseDiscountPercentage)% Merch Discount"
+        } else {
+            merchDiscountLabel.text = ""
+        }
     }
 }

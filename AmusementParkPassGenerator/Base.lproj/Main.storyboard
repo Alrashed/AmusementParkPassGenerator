@@ -397,7 +397,7 @@
                                         </state>
                                         <connections>
                                             <action selector="generatePass" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ksh-0d-b7c"/>
-                                            <segue destination="d9E-9a-BPm" kind="show" identifier="CreatePass" id="pfI-SW-zK1"/>
+                                            <segue destination="d9E-9a-BPm" kind="presentation" identifier="ShowPass" id="DYR-Ji-T9r"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSr-2y-ACq">
