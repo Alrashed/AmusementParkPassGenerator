@@ -33,6 +33,7 @@ class TestPassViewController: UIViewController {
 
         testAccessButtons = [testAccessButton0, testAccessButton1, testAccessButton2, testAccessButton3, testAccessButton4]
         
+        hideTestAccessButtons()
         configurePassLabels()
     }
     
@@ -41,19 +42,43 @@ class TestPassViewController: UIViewController {
     }
     
     @IBAction func showAreaAccessTests(_ sender: UIButton) {
-        
+        configureTestAccessButtonLabels(["Park Area", "Kitchen Area", "Ride Control", "Maintenance", "Office"])
     }
     
     @IBAction func showRideAccessTests(_ sender: UIButton) {
-        
+        configureTestAccessButtonLabels(["All Rides", "Skip Ride Lines"])
     }
     
     @IBAction func showDiscountAccessTests(_ sender: UIButton) {
-        
+        configureTestAccessButtonLabels(["Food Discounts", "Merchandise Discounts"])
     }
     
     @IBAction func accessTestSelected(_ sender: UIButton) {
+        showPassTestResults()
+    }
+    
+    func showPassTestResults() {
+        hideTestAccessButtons()
+    }
+    
+    func configureTestAccessButtonLabels(_ buttonLabels: [String]) {
+        for (index, label) in buttonLabels.enumerated() {
+            testAccessButtons[index].setTitle(label, for: .normal)
+        }
         
+        for buttonIndex in 0..<buttonLabels.count {
+            testAccessButtons[buttonIndex].isHidden = false
+        }
+        
+        for buttonIndex in buttonLabels.count..<testAccessButtons.count {
+            testAccessButtons[buttonIndex].isHidden = true
+        }
+    }
+    
+    func hideTestAccessButtons() {
+        for button in testAccessButtons {
+            button.isHidden = true
+        }
     }
     
     func configurePassLabels() {
