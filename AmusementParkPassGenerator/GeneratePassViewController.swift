@@ -76,6 +76,8 @@ class GeneratePassViewController: UIViewController {
     @IBAction func subCategorySelected(_ sender: UIButton) {
         guard let selectedCategory = sender.titleLabel?.text else { return }
         
+        enableTextFields([projectTextField, companyTextField], enabled: false)
+        
         switch selectedCategory {
             
         case "Guest", "Classic":
@@ -137,7 +139,7 @@ class GeneratePassViewController: UIViewController {
         default: print("Error selecting a category")
         }
         
-        print(passDescription)
+        enableRequirdTextFields(for: entrant)
     }
     
     
@@ -161,6 +163,25 @@ class GeneratePassViewController: UIViewController {
         
         for buttonIndex in buttonLabels.count..<subCategoryButtons.count {
             subCategoryButtons[buttonIndex].isHidden = true
+        }
+    }
+    
+    func enableRequirdTextFields(for entrant: EntrantType) {
+        enableTextFields([dateOfBirthTextField], enabled: entrant is Ageable)
+        enableTextFields([firstNameTextField, lastNameTextField], enabled: entrant is Nameable)
+        enableTextFields([streetAddressTextField, cityTextField, stateTextField, zipCodeTextField], enabled: entrant is Addressable)
+    }
+    
+    func enableTextFields(_ textFields: [UITextField], enabled: Bool) {
+        for textField in textFields {
+            if enabled == true {
+                textField.isEnabled = true
+                textField.backgroundColor = UIColor.white
+            } else {
+                textField.isEnabled = false
+                textField.backgroundColor = UIColor.clear
+                textField.text = ""
+            }
         }
     }
 }
